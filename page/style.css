@@ -1,0 +1,119 @@
+body,html
+{
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+    border: 1px solid #000;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 10% 1fr 10%;
+    height: 100vh;
+    font-size: calc(10px + 1vw);
+}
+.header {
+    background-color:rgba(205, 255, 228, 0.658);
+    grid-column:1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.main_part {
+    background-color:bisque;
+    text-align: center;
+}
+
+.main_title{
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+.class{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 1fr 1fr;
+    height: 100%;
+    gap: 0.5em; /*Расстояние между строчками и столбцами должна же быть равной? Но здесь выходить что между столбцами больше места, если задавать процентами*/
+}
+.class_1, .class_2, .class_3{
+    background-color:antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.class_1 {
+margin-left: 0.5em;
+}
+.class_2 {
+    margin-right: 0.5em;
+}
+.class_3 {
+    grid-column: 1/3;
+    margin: 0 0.5em 0.5em 0.5em;
+}
+.aside {
+    background-color: rgba(219, 184, 141, 0.712);
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+.footer {
+    background-color: rgba(205, 255, 228, 0.658);
+    grid-column:1/4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    align-items: center;
+    gap: 0.5em;
+
+}
+.section_1, .section_2, .section_3, .section_4{
+    display: block;
+    background-color: aquamarine;
+    text-align: center;
+    font-size: calc(10px + 1vw);
+    padding:2%; /*Когда задаю процентами,  section начинает выходить из-за границы строки при 5%, можно это как-то исправить? не могу понять от чего отсчитываются эти проценты. мне казалось от родителя должно. но в данном случаи как будто не от блока (футора) считаются проценты.
+    И если задавать margin тоже section начинает выходить за границы */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.section_1 {
+    margin-left: 1em;
+}
+.section_2 {
+}
+.section_3 {
+}
+.section_4 {
+    margin-right: 1em;
+}
+@media screen and (max-width: 650px){
+    .container{
+        grid-template-rows: 10% 2fr 2fr 0.5fr;
+    }
+    .main_part {
+        grid-column: 1/3;
+    }
+    .aside{
+        grid-column: 1/3;
+    }
+
+    .section_1, .section_2, .section_3, .section_4{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+    .class{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr 1fr 1fr;
+    }
+    .main_title, .class_1, .class_2, .class_3 {
+        grid-column: 1/2;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    }
